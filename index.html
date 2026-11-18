@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f5f6f8">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="PDF Stüdyo">
+<title>PDF Stüdyo</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<div id="app" class="app">
+
+  <header class="topbar">
+    <button class="icon-btn only-mobile" id="btnSidebar" title="Sayfalar" aria-label="Sayfalar">
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="7" height="16" rx="1.6"/><rect x="14" y="4" width="7" height="7" rx="1.6"/><rect x="14" y="13" width="7" height="7" rx="1.6"/></svg>
+    </button>
+    <div class="brand">
+      <svg viewBox="0 0 24 24" class="brand-mark"><path d="M6 2.5h7.2L19 8.3V21a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 21V4a1.5 1.5 0 0 1 1.5-1.5Z" fill="currentColor" opacity=".14"/><path d="M6 2.5h7.2L19 8.3V21a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 21V4a1.5 1.5 0 0 1 1.5-1.5Z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M13 2.7V8.5h5.7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+      <span>PDF Stüdyo</span>
+    </div>
+    <div class="doc-meta">
+      <span id="docName">Belge açılmadı</span>
+      <span class="dot" id="dirtyDot" hidden></span>
+      <span class="muted" id="docPages"></span>
+    </div>
+    <div class="top-actions">
+          <span class="file-wrap">
+            <input type="file" class="file-hit" accept="application/pdf,.pdf" multiple aria-label="PDF aç">
+            <span class="btn" id="btnOpen">
+              <svg viewBox="0 0 24 24" class="i"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M4 15v3.5A1.5 1.5 0 0 0 5.5 20h13a1.5 1.5 0 0 0 1.5-1.5V15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>PDF Aç</span>
+            </span>
+          </span>
+      <button class="btn primary" id="btnSave" disabled>
+        <svg viewBox="0 0 24 24" class="i"><path d="M12 4v11m0 0 4.2-4.2M12 15l-4.2-4.2M5 18.5h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Kaydet</span>
+      </button>
+      <button class="icon-btn" id="btnHelp" title="Yardım">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M9.6 9.3a2.5 2.5 0 1 1 3.4 2.3c-.7.3-1 .8-1 1.5v.3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="16.6" r="1.05" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="workspace">
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-head">
+        <span class="sidebar-title">Sayfalar</span>
+        <span class="file-wrap">
+          <input type="file" class="file-hit" accept="application/pdf,.pdf" multiple aria-label="PDF ekle">
+          <span class="mini-btn" id="btnAddPages">+ Ekle</span>
+        </span>
+      </div>
+      <div class="thumbs" id="thumbs"></div>
+      <div class="sidebar-foot">
+        <button class="mini-btn wide" id="btnFit">Sayfayı sığdır</button>
+        <button class="mini-btn wide" id="btnNew">Yeni belge</button>
+      </div>
+    </aside>
+
+    <section class="stage" id="stage">
+
+      <div class="empty" id="emptyState">
+        <div class="empty-card" id="dropZone">
+          <svg viewBox="0 0 24 24" class="empty-icon"><path d="M6 2.5h7.2L19 8.3V21a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 21V4a1.5 1.5 0 0 1 1.5-1.5Z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M13 2.7V8.5h5.7M8.5 13h7M8.5 16.5h4.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          <h1>PDF dosyanı buraya bırak</h1>
+          <p>Görüntüle, işaretle, metni düzenle, sayfa birleştir veya sil.</p>
+          <span class="file-wrap">
+            <input type="file" class="file-hit" accept="application/pdf,.pdf" multiple aria-label="PDF seç">
+            <span class="btn primary lg" id="btnOpen2">PDF Seç</span>
+          </span>
+          <p class="privacy">Dosyalar hiçbir sunucuya yüklenmez, cihazında işlenir.</p>
+        </div>
+      </div>
+
+      <div class="scroller" id="pageScroller" hidden>
+        <div class="page-wrap" id="pageWrap">
+          <canvas id="pageCanvas"></canvas>
+          <div class="text-layer" id="textLayer"></div>
+          <div class="edit-layer" id="editLayer"></div>
+          <div class="edit-layer" id="selLayer"></div>
+          <div class="inline-editor-wrap" id="inlineEditorWrap" hidden>
+            <textarea id="editText" rows="2" spellcheck="false"></textarea>
+          </div>
+<div class="modal" id="modalText" hidden>
+  <div class="modal-card">
+    <header>
+      <h2>Metni düzenle</h2>
+      <button class="icon-btn" data-close aria-label="Kapat"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    </header>
+    <div class="modal-body">
+      <div class="row">
+        <label class="field grow">
+          <span>Yazı tipi</span>
+          <select id="editFont"></select>
+        </label>
+        <label class="field size">
+          <span>Boyut</span>
+          <input id="editSize" type="number" min="4" max="220" step="0.5">
+        </label>
+        <label class="field width">
+          <span>Genişlik</span>
+          <input id="editBoxWidth" type="number" min="20" max="800" step="1">
+        </label>
+      </div>
+      <div class="row between">
+        <label class="field color">
+          <span>Renk</span>
+          <input id="editColor" type="color" value="#000000">
+        </label>
+        <label class="check"><input type="checkbox" id="editFit"><span>Satıra sığdır</span></label>
+      </div>
+      <p class="hint" id="editHint"></p>
+    </div>
+    <footer>
+      <button class="btn ghost" id="editCoverOnly">Sadece kapat</button>
+      <button class="btn ghost" id="editRevert" hidden>Geri al</button>
+      <div class="spacer"></div>
+      <button class="btn ghost" data-close>İptal</button>
+      <button class="btn primary" id="editApply">Uygula</button>
+    </footer>
+  </div>
+</div>
+
+
+          <div class="note-layer" id="noteLayer"></div>
+          <svg class="annot-layer" id="annotLayer" xmlns="http://www.w3.org/2000/svg"></svg>
+        </div>
+      </div>
+
+<div class="pager" id="pager" hidden>
+        <button class="pager-btn" id="btnPrev" aria-label="Önceki sayfa">
+          <svg viewBox="0 0 24 24"><path d="M14.5 6 9 12l5.5 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <span id="pageIndicator">—</span>
+        <button class="pager-btn" id="btnNext" aria-label="Sonraki sayfa">
+          <svg viewBox="0 0 24 24"><path d="M9.5 6 15 12l-5.5 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+
+      <div class="loading" id="loading" hidden><div class="spinner"></div><span id="loadingText">Yükleniyor…</span></div>
+    </section>
+  </main>
+
+  <div class="toolbar" id="toolbar" hidden>
+    <div class="tool-group">
+      <button class="tool" data-tool="select" title="Seç">
+        <svg viewBox="0 0 24 24"><path d="M5.5 3.5 18 11l-5.2 1.3L10 18.5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="tool" data-tool="text" title="Metin">
+        <svg viewBox="0 0 24 24"><path d="M5 6.5V5h14v1.5M12 5v14m-4 0h8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <button class="tool" data-tool="highlight" title="Vurgula">
+        <svg viewBox="0 0 24 24"><path d="M6 15.5 15.2 6.3a2 2 0 0 1 2.8 0l.2.2a2 2 0 0 1 0 2.8L9 18.5l-4.3 1.2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M13.5 8l3 3" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+      </button>
+      <button class="tool" data-tool="pen" title="Kalem">
+        <svg viewBox="0 0 24 24"><path d="M4 20c2.5-.4 4.2-1.6 6-3.4l8.6-8.6a2 2 0 0 0 0-2.8l-.8-.8a2 2 0 0 0-2.8 0L6.4 13C4.6 14.8 4.4 17.5 4 20Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="tool" data-tool="rect" title="Kutu">
+        <svg viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
+      </button>
+      <button class="tool" data-tool="note" title="Not">
+        <svg viewBox="0 0 24 24"><path d="M5 5.5h14v9.6l-4.4 4.4H5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14.6 19.5v-4.4h4.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.5 9h7M8.5 12h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+      <button class="tool" data-tool="erase" title="Sil">
+        <svg viewBox="0 0 24 24"><path d="M7.5 19h11M5.2 15.4l7.7-7.7a2 2 0 0 1 2.8 0l1.7 1.7a2 2 0 0 1 0 2.8l-5.6 5.6H8.2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="tool" data-tool="underline" title="Altı Çiz">
+        <svg viewBox="0 0 24 24"><path d="M1 4h22M1 12h22M1 20h22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <button class="tool" data-tool="strike" title="Üstü Çiz">
+        <svg viewBox="0 0 24 24"><path d="M5 8h14M8 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+
+    <div class="tool-sep"></div>
+
+    <div class="tool-group">
+      <button class="tool" id="btnZoomOut" title="−">
+        <svg viewBox="0 0 24 24"><path d="M6 12h12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <button class="zoom-label" id="zoomLabel" title="+">100%</button>
+      <button class="tool" id="btnZoomIn" title="+">
+        <svg viewBox="0 0 24 24"><path d="M12 6v12M6 12h12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+
+    <div class="tool-sep"></div>
+
+    <div class="tool-group">
+      <button class="tool" id="btnRotate" title="Dön">
+        <svg viewBox="0 0 24 24"><path d="M19 12a7 7 0 1 1-2.3-5.2M19 4.5V9h-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="tool danger" id="btnDeletePage" title="Sil">
+        <svg viewBox="0 0 24 24"><path d="M5.5 7h13M9.5 7V5.2h5V7M7.5 7l.8 12.2h7.4L16.5 7M10.3 10.5v5.6M13.7 10.5v5.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="tool danger" id="btnDeleteAnnot" title="Not Sil" hidden>
+        <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modalSave" hidden>
+  <div class="modal-card">
+    <header>
+      <h2>Farklı kaydet</h2>
+      <button class="icon-btn" data-close aria-label="Kapat"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    </header>
+    <div class="modal-body">
+      <label class="field">
+        <span>Dosya adı</span>
+        <input id="saveName" type="text" maxlength="120" autocomplete="off" spellcheck="false">
+      </label>
+      <p class="hint">Yeni PDF bu adla indirilir; özgün dosyan değişmez.</p>
+    </div>
+    <footer>
+      <div class="spacer"></div>
+      <button class="btn ghost" data-close>İptal</button>
+      <button class="btn primary" id="saveApply">İndir</button>
+    </footer>
+  </div>
+</div>
+
+<div class="modal" id="modalNote" hidden>
+  <div class="modal-card">
+    <header>
+      <h2 id="noteTitle">Not ekle</h2>
+      <button class="icon-btn" data-close aria-label="Kapat"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    </header>
+    <div class="modal-body">
+      <label class="field">
+        <span>Not</span>
+        <textarea id="noteText" rows="4" placeholder="Notunuz…"></textarea>
+      </label>
+      <div class="row">
+        <label class="field">
+          <span>Renk</span>
+          <input id="noteColor" type="color" value="#f2b705">
+        </label>
+        <label class="field size">
+          <span>Boyut</span>
+          <input id="noteSize" type="number" min="6" max="72" step="1" value="11">
+        </label>
+      </div>
+    </div>
+    <footer>
+      <div class="spacer"></div>
+      <button class="btn ghost" data-close>İptal</button>
+      <button class="btn primary" id="noteApply">Ekle</button>
+    </footer>
+  </div>
+</div>
+
+<div class="modal" id="modalHelp" hidden>
+  <div class="modal-card wide">
+    <header>
+      <h2>Nasıl kullanılır?</h2>
+      <button class="icon-btn" data-close aria-label="Kapat"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    </header>
+    <div class="modal-body help-body">
+      <ol>
+        <li><b>PDF Aç / Ekle:</b> açık belge yokken yeni belge açar; belge açıkken seçtiğin dosyaları mevcut belgeye ekler (birleştirme). Birden fazla dosya seçebilirsin.</li>
+        <li><b>Metin düzenle:</b> bir satıra dokun, metni değiştir. Özgün yazı tipi gömülüyse korunur, değilse ölçüleri en yakın yazı tipi kullanılır.</li>
+        <li><b>Vurgula / Kalem / Kutu / Not:</b> işaretler sayfanın üzerinde durur ve kaydederken PDF'e gömülür.</li>
+        <li><b>Sil:</b> işaret aracıyla eklediğin vurgu, çizim veya notu kaldırır.</li>
+        <li><b>Sayfalar:</b> soldaki küçük resimlerden sayfa seç, döndür, taşı veya sil. Birleştirmek için <i>+ Ekle</i>.</li>
+        <li><b>Kaydet:</b> dosya adını sorar ve yeni bir PDF indirir; özgün dosyan değişmez. <b>Yeni belge</b> ile çalışma alanını temizleyebilirsin.</li>
+      </ol>
+      <p class="hint">Not: Metin düzenleme, yazı tipi gömülü olmayan veya alt küme (subset) olarak gömülmüş dosyalarda yakın bir yazı tipiyle yapılır. Bu durumda satır genişliği küçük farklar gösterebilir.</p>
+      <p class="hint">iPhone'da kullanmak için Mac'te bu sunucuyu açık bırak ve aynı Wi-Fi ağından Safari ile <b>http://&lt;mac-adı&gt;.local:8765</b> adresini aç. Paylaş menüsünden “Ana Ekrana Ekle” ile uygulama gibi kullanabilirsin.</p>
+    </div>
+    <footer>
+      <div class="spacer"></div>
+      <button class="btn primary" data-close>Anladım</button>
+    </footer>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden><span id="toastText"></span><button id="toastAction" hidden></button></div>
+
+
+<script src="vendor/pdf-lib.min.js"></script>
+<script src="vendor/fontkit.umd.js"></script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
