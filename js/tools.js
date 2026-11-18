@@ -13,8 +13,8 @@ import { wrapText, lineHeightFor } from './textlayout.js';
 
 const COLORS = {
   highlight: [255, 214, 10],
-underline: [0, 0, 255],     /* mavi altı çiz */
-strike: [128, 0, 128]      /* morastık üstü çiz */
+  underline: [0, 0, 255],   /* mavi: altı çiz */
+  strike: [128, 0, 128],    /* mor: üstü çiz */
   pen: [223, 45, 55],
   rect: [47, 109, 246],
   note: [242, 183, 5],
