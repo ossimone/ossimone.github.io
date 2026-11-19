@@ -56,6 +56,7 @@ export function initTools() {
     const entry = entryReady();
     if (!entry) return;
     if (state.tool !== 'text') return;
+    if (state.editTarget) return;
     if (state.editTarget && (e.target === dom.editText || dom.modalText.contains(e.target))) return;
     const p = localPoint(e);
     const pdf = cssToPdf(p.x, p.y);
@@ -278,7 +279,7 @@ async function onTextPointerDown(e, entry, p) {
         entry, op: selOp, mode: 'move', handle: null,
         startCss: p, startPdf: pdf, startRect: selOp.rect.slice(),
         startX: selOp.x, startY: selOp.y,
-        moved: false, pointerId: e.pointerId,
+        moved: false, pointerId: e.pointerId, wasSelected: true,
         padTop: selOp.rect[3] - selOp.y,
         padBottom: Math.max(0, (selOp.rect[1] - (selOp.y - (selOp.lineCount - 1) * (selOp.lineHeight || lineHeightFor(selOp.fontSize)) - selOp.fontSize * 0.25))),
         ready: false,
@@ -299,7 +300,7 @@ async function onTextPointerDown(e, entry, p) {
     opDrag = {
       entry, op, mode: 'move', handle: null,
       startCss: p, startPdf: pdf, startRect: op.rect.slice(),
-      startX: op.x, startY: op.y, moved: false, pointerId: e.pointerId,
+      startX: op.x, startY: op.y, moved: false, pointerId: e.pointerId, wasSelected: false,
       padTop: op.rect[3] - op.y,
       padBottom: Math.max(0, (op.rect[1] - (op.y - (op.lineCount - 1) * (op.lineHeight || lineHeightFor(op.fontSize)) - op.fontSize * 0.25))),
       ready: false,
@@ -309,6 +310,7 @@ async function onTextPointerDown(e, entry, p) {
     return;
   }
   state.selectedTextOp = null;
+  drawTextPreviews();
   emit('overlays:changed');
   // Aşama C: seçili op varken ıskalayan tıklama YENİ op oluşturmaz (ikinci op sızıntısı)
   if (hadSel) return;
@@ -441,15 +443,19 @@ function onOpDragEnd(e, entry) {
     drawTextPreviews();
     emit('overlays:changed');
   } else {
-    // hareket yoksa: edit moduna geç — nokta yerine op'un MERKEZİ kullanılır
-    // (köşe noktası rect sınırına denk gelirse opAtPoint op'u bulamaz, ikinci op oluşur)
+    // hareket yoksa: ilk dokunuş seçer (çerçeve + tutamaçlar), seçiliye ikinci dokunuş düzenler
     state.selectedTextOp = dragObj.op.id;
-    setTimeout(() => {
-      try {
-        const r = dragObj.op.rect;
-        openTextEditor(null, [(r[0] + r[2]) / 2, (r[1] + r[3]) / 2]).catch(err => { console.error(err); });
-      } catch (err) { console.error(err); }
-    }, 0);
+    if (dragObj.wasSelected) {
+      setTimeout(() => {
+        try {
+          const r = dragObj.op.rect;
+          openTextEditor(null, [(r[0] + r[2]) / 2, (r[1] + r[3]) / 2]).catch(err => { console.error(err); });
+        } catch (err) { console.error(err); }
+      }, 0);
+    } else {
+      drawTextPreviews();
+      emit('overlays:changed');
+    }
   }
 }
 

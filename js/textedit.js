@@ -188,7 +188,12 @@ function syncInlineFromSelection() {
   let resolvedCss = 'PDFSans, sans-serif';
   let bold = '400', italic = 'normal', colorRgb = '#000000';
   if (sel) {
-    if (sel.startsWith('sys:')) {
+    const cached = t.fontCache && t.fontCache.get(sel);
+    if (cached && cached.css) {
+      resolvedCss = cached.css;
+      bold = cached.bold ? '700' : '400';
+      italic = cached.italic ? 'italic' : 'normal';
+    } else if (sel.startsWith('sys:')) {
       const sys = SYS_FONTS[sel];
       resolvedCss = (sys && sys.css) || 'PDFSans, sans-serif';
       bold = sys && sys.bold ? '700' : '400';
@@ -206,7 +211,10 @@ function syncInlineFromSelection() {
   const ta = dom.editText;
   if (!ta) return;
   ta.style.color = colorHex;
-  ta.style.font = `${Math.round(parseFloat(dom.editSize.value) || t.fontSize)}px ${resolvedCss}`;
+  const fsCss = (parseFloat(dom.editSize.value) || t.fontSize) * (view.scale || 1);
+  ta.style.fontSize = `${fsCss}px`;
+  ta.style.lineHeight = `${fsCss * 1.2}px`;
+  ta.style.fontFamily = resolvedCss;
   ta.style.fontWeight = bold;
   ta.style.fontStyle = italic;
 }
@@ -551,6 +559,7 @@ export async function openTextEditor(box, pdfPoint) {
     bg: sample.bg, area, existingId: existing ? existing.id : null,
     defaultKey: key, want, fallbackKey, runsSource,
     baseFontSize,
+    warnedMissing: false,
     textDir: existing ? (existing.textDir || 0) : (boxes[0] ? boxes[0].angle : 0),
     fontCache,
   };
@@ -600,8 +609,13 @@ function openFloatingEditor(t) {
   let resolvedCss = 'PDFSans, sans-serif';
   let bold = '400', italic = 'normal', colorRgb = '#000000';
   if (selKey) {
-    // resolveFont sync değil — legacy advance davranışta zaten ilk kez resolve edilmiş sayılır
-    if (selKey.startsWith('sys:')) {
+    // Gömülü fontun gerçek @font-face ailesini kullan → önizleme birebir
+    const cached = t.fontCache && t.fontCache.get(selKey);
+    if (cached && cached.css) {
+      resolvedCss = cached.css;
+      bold = cached.bold ? '700' : '400';
+      italic = cached.italic ? 'italic' : 'normal';
+    } else if (selKey.startsWith('sys:')) {
       const sys = SYS_FONTS[selKey];
       resolvedCss = sys && sys.css || 'PDFSans, sans-serif';
       bold = sys && sys.bold ? '700' : '400';
@@ -683,6 +697,10 @@ async function updateHint() {
       if (missing.length) {
         const fb = SYS_FONTS[sysFallbackFor(f)];
         hint += ` Bu alt kümede şu karakterler yok: ${missing.slice(0, 14).map(c => `“${c}”`).join(', ')}${missing.length > 14 ? '…' : ''}. Uygulanınca ${fb ? fb.label : 'yakın bir yazı tipi'} kullanılacak.`;
+        if (!t.warnedMissing) {
+          t.warnedMissing = true;
+          toast(`Gömülü yazı tipinde eksik karakter var: ${missing.slice(0, 6).map(c => `“${c}”`).join(', ')}${missing.length > 6 ? '…' : ''}. Yakın yazı tipi kullanılacak.`);
+        }
       }
       if (f.glyphCount && f.glyphCount < 80) hint += ' (Alt küme küçük olduğu için yeni harfler desteklenmeyebilir.)';
     }

@@ -1,5 +1,5 @@
 /* PDF Stüdyo — çevrimdışı önbellek */
-const VERSION = 'pdfstudio-v16c8';
+const VERSION = 'pdfstudio-v16c9';
 const CORE = [
   './',
   'index.html',
