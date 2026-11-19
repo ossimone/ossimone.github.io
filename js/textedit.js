@@ -73,7 +73,7 @@ export function cancelInlineEdit() {
   const entry = t.entry;
   entry.textOps = t.snapshotOps ? t.snapshotOps.slice() : [];
   state.editTarget = null;
-  if (t.existingId) state.selectedTextOp = t.existingId;
+  if (t.existingId) state.selectedTextOp = null;
   closeFloating();
   drawTextPreviews();
   emit('overlays:changed');
@@ -170,10 +170,9 @@ export function closeInlineEdit() {
   const t = state.editTarget;
   if (!t) return;
   if (t.existingId) {
-    const op = (t.entry.textOps || []).find(o => o.id === t.existingId);
     closeFloating();
     state.editTarget = null;
-    if (op) state.selectedTextOp = op.id;
+    state.selectedTextOp = null;
     drawTextPreviews();
     emit('overlays:changed');
     return;
@@ -444,6 +443,9 @@ function buildRunsFor(newText, runsSource, defaultStyle) {
 export async function openTextEditor(box, pdfPoint) {
   const entry = currentEntry();
   if (!entry || !view.viewport) return false;
+
+  // Düzenleme sırasında seçim çerçevesi görünmesin
+  state.selectedTextOp = null;
 
   const existing = pdfPoint ? opAtPoint(entry, pdfPoint[0], pdfPoint[1]) : null;
   let boxes = [];
@@ -738,7 +740,7 @@ async function applyEdit(coverOnly) {
     if (op) {
       closeFloating();
       state.editTarget = null;
-      state.selectedTextOp = op.id;
+      state.selectedTextOp = null;
       drawTextPreviews();
       emit('overlays:changed');
       return;
@@ -806,7 +808,7 @@ async function applyEditRuns() {
   setDirty();
   closeFloating();
   state.editTarget = null;
-  state.selectedTextOp = op.id;
+  state.selectedTextOp = null;
   drawTextPreviews();
   emit('overlays:changed');
 }
@@ -874,7 +876,7 @@ async function applyEditLegacy(coverOnly) {
   setDirty();
   closeFloating();
   state.editTarget = null;
-  state.selectedTextOp = op.id;
+  state.selectedTextOp = null;
   drawTextPreviews();
   emit('overlays:changed');
 }
