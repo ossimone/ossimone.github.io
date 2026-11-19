@@ -7,7 +7,7 @@ import {
 import { pdfjsLib, renderCurrent, resetView, updateChrome, textBoxes } from './render.js';
 import { initTools, clearSelection } from './tools.js';
 import { openTextEditor } from './textedit.js';
-import { initTextEdit, drawTextPreviews, hideTextSelection } from './textedit.js';
+import { initTextEdit, drawTextPreviews, hideTextSelection, closeInlineEdit } from './textedit.js';
 import { initOrganizer, refreshThumbs, goTo, rotateCurrent, deleteCurrent } from './organizer.js';
 import { invalidateFontCache, getPageFonts } from './fonts.js';
 import { buildPdf } from './export.js';
@@ -15,6 +15,10 @@ import { buildPdf } from './export.js';
 let opening = false;
 
 function setTool(tool) {
+  // Araç değişimi metin düzenlemesini otomatik uygular
+  if (state.editTarget && state.tool !== tool) {
+    try { closeInlineEdit(); } catch (err) { console.error(err); }
+  }
   state.tool = tool;
   dom.app.dataset.tool = tool;
   document.querySelectorAll('.tool[data-tool]').forEach(b => {

@@ -91,42 +91,22 @@
             <textarea id="editText" rows="2" spellcheck="false"></textarea>
           </div>
 <div class="modal" id="modalText" hidden>
-  <div class="modal-card">
-    <header>
-      <h2>Metni düzenle</h2>
-      <button class="icon-btn" data-close aria-label="Kapat"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-    </header>
-    <div class="modal-body">
-      <div class="row">
-        <label class="field grow">
-          <span>Yazı tipi</span>
-          <select id="editFont"></select>
-        </label>
-        <label class="field size">
-          <span>Boyut</span>
-          <input id="editSize" type="number" min="4" max="220" step="0.5">
-        </label>
-        <label class="field width">
-          <span>Genişlik</span>
-          <input id="editBoxWidth" type="number" min="20" max="800" step="1">
-        </label>
-      </div>
-      <div class="row between">
-        <label class="field color">
-          <span>Renk</span>
-          <input id="editColor" type="color" value="#000000">
-        </label>
-        <label class="check"><input type="checkbox" id="editFit"><span>Satıra sığdır</span></label>
-      </div>
-      <p class="hint" id="editHint"></p>
+  <div class="modal-card te-card">
+    <div class="te-bar">
+      <select id="editFont" class="te-font" title="Yazı tipi" aria-label="Yazı tipi"></select>
+      <input id="editSize" class="te-size" type="number" min="4" max="220" step="0.5" title="Punto" aria-label="Punto">
+      <input id="editColor" class="te-color" type="color" value="#000000" title="Renk" aria-label="Renk">
+      <button class="te-ic" id="editMore" title="Diğer ayarlar" aria-label="Diğer ayarlar" aria-expanded="false">…</button>
+      <button class="te-ic" id="editRevert" hidden title="Geri al" aria-label="Geri al">↺</button>
+      <button class="te-ic te-ok" id="editApply" title="Uygula ve kapat" aria-label="Uygula ve kapat">✓</button>
     </div>
-    <footer>
-      <button class="btn ghost" id="editCoverOnly">Sadece kapat</button>
-      <button class="btn ghost" id="editRevert" hidden>Geri al</button>
-      <div class="spacer"></div>
-      <button class="btn ghost" data-close>İptal</button>
-      <button class="btn primary" id="editApply">Uygula</button>
-    </footer>
+    <div class="te-more" id="teMore" hidden>
+      <label class="te-field"><span>Genişlik</span><input id="editBoxWidth" type="number" min="20" max="800" step="1" aria-label="Genişlik (pt)"></label>
+      <label class="te-check"><input type="checkbox" id="editFit"><span>Satıra sığdır</span></label>
+      <button class="te-link" id="editCoverOnly" type="button">Sadece kapat</button>
+      <button class="te-link danger" id="editCancel" type="button">İptal et</button>
+    </div>
+    <p class="hint" id="editHint" hidden></p>
   </div>
 </div>
 

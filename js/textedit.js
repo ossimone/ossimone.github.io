@@ -48,9 +48,23 @@ export function initTextEdit() {
   dom.editSize.addEventListener('input', () => { updateHint(); syncInlineFromSelection(); rebuildLiveOp(); });
   dom.editColor.addEventListener('input', () => { syncInlineFromSelection(); rebuildLiveOp(); });
   dom.editText.addEventListener('input', () => { updateHint(); rebuildLiveOp(); });
-  // İptal: inline düzenlemeyi geri al (modal'ı kapat)
-  const cancel = dom.modalText ? dom.modalText.querySelector('[data-close]') : null;
-  if (cancel) cancel.addEventListener('click', cancelInlineEdit);
+  // ⋯ menüsü: genişlik / sığdır / sadece kapat / iptal
+  const moreBtn = document.getElementById('editMore');
+  const morePanel = document.getElementById('teMore');
+  if (moreBtn && morePanel) {
+    moreBtn.addEventListener('click', () => {
+      morePanel.hidden = !morePanel.hidden;
+      moreBtn.setAttribute('aria-expanded', String(!morePanel.hidden));
+    });
+  }
+  const cancelBtn = document.getElementById('editCancel');
+  if (cancelBtn) cancelBtn.addEventListener('click', cancelInlineEdit);
+  // Esc: otomatik uygula (Aşama A canlı güncelleme)
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape' || !state.editTarget) return;
+    e.stopPropagation();
+    Promise.resolve(commitInlineEdit()).catch(err => console.error(err));
+  }, true);
 }
 
 export function cancelInlineEdit() {
@@ -611,6 +625,10 @@ function openFloatingEditor(t) {
 
   // floating modal'ı op'un altına (ya da üstüne) yerleştir
   const card = dom.modalText.querySelector('.modal-card');
+  const morePanel = document.getElementById('teMore');
+  const moreBtn = document.getElementById('editMore');
+  if (morePanel) morePanel.hidden = true;
+  if (moreBtn) moreBtn.setAttribute('aria-expanded', 'false');
   dom.modalText.classList.add('floating');
   dom.modalText.hidden = false;
   // okunabilir boyut ayarla — tahmini card yüksekliği
@@ -635,6 +653,10 @@ function openFloatingEditor(t) {
 
 function closeFloating(commit) {
   const t = state.editTarget;
+  const morePanel = document.getElementById('teMore');
+  const moreBtn = document.getElementById('editMore');
+  if (morePanel) morePanel.hidden = true;
+  if (moreBtn) moreBtn.setAttribute('aria-expanded', 'false');
   dom.modalText.hidden = true;
   dom.modalText.classList.remove('floating');
   dom.modalText.removeAttribute('style');
@@ -691,6 +713,7 @@ async function updateHint() {
   }
   dom.editHint.textContent = hint;
   dom.editHint.classList.toggle('hint-overflow', overflow);
+  if (dom.editSize) dom.editSize.classList.toggle('te-overflow', overflow);
 }
 
 function revertEdit() {

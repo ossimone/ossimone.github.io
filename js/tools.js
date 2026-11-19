@@ -115,6 +115,12 @@ function onDown(e) {
   const pdf = cssToPdf(p.x, p.y);
   const tool = state.tool;
 
+  // Metin düzenlemesi açıkken sayfaya tıklama otomatik uygular
+  if (state.editTarget && tool !== 'text') {
+    const inEditor = e.target === dom.editText || dom.modalText.contains(e.target);
+    if (!inEditor) closeInlineEdit();
+  }
+
   if (tool === 'text') {
     // Inline edici textarea veya floating araç içerisindeyse tıklamayı yargı
     const inEditor = state.editTarget && (e.target === dom.editText || dom.modalText.contains(e.target));
