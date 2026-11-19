@@ -193,8 +193,7 @@ export async function getPageFonts(entryOrFileId, maybeIndex) {
           continue;
         }
         if (!f.usable) continue;
-        const key = String(f.baseFont || '').toLowerCase();
-        if (result.some(r => r.usable && String(r.baseFont || '').toLowerCase() === key)) continue;
+        if (result.some(r => r.resName === f.resName)) continue;
         result.push(f);
       }
     } catch { /* yoksay */ }
@@ -239,14 +238,21 @@ export function pickFont(fonts, style = {}) {
 }
 
 /** Metin kutusunun fontName'i için baytları olan gömülü font kaydını bulur. */
-export function usableFor(fonts, resName) {
+export function usableFor(fonts, resName, text) {
   if (!fonts || !resName) return null;
   const direct = fonts.find(f => f.resName === resName);
   if (direct && direct.usable) return direct;
   if (!direct) return null;
-  const nb = String(direct.baseFont || '').toLowerCase();
+  const nb = normName(direct.baseFont || '');
   if (!nb) return null;
-  return fonts.find(f => f.usable && String(f.baseFont || '').toLowerCase() === nb) || null;
+  const cands = fonts.filter(f => f.usable && normName(f.baseFont || '') === nb);
+  if (!cands.length) return null;
+  // Aynı BaseFont'a sahip birden çok alt küme olabilir: metni kapsayanı seç.
+  if (text) {
+    const covering = cands.filter(f => f.fk && missingChars(f.fk, text).length === 0);
+    if (covering.length) return covering.sort((a, b) => (b.glyphCount || 0) - (a.glyphCount || 0))[0];
+  }
+  return cands.sort((a, b) => (b.glyphCount || 0) - (a.glyphCount || 0))[0];
 }
 
 export function fontLabelFor(key, fonts) {

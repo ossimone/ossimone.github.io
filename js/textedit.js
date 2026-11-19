@@ -41,7 +41,7 @@ export function initTextEdit() {
   // Sığdır açılıp kapatıldığında hint'i tazele ve canlı op'u yeniden kur
   dom.editFit.addEventListener('change', () => { updateHint(); rebuildLiveOp(); });
 
-  dom.editApply.addEventListener('click', () => applyEdit(false));
+  dom.editApply.addEventListener('click', () => { Promise.resolve(applyEdit(false)).catch(err => console.error(err)); });
   dom.editCoverOnly.addEventListener('click', () => applyEdit(true));
   dom.editRevert.addEventListener('click', revertEdit);
   dom.editFont.addEventListener('change', () => { updateHint(); syncInlineFromSelection(); rebuildLiveOp(); });
@@ -376,7 +376,7 @@ function buildStyleMap(boxes, fonts) {
   let clusterIdx = 0;
   let prev = null;
   const wantOf = (box) => {
-    const m = usableFor(fonts, box.fontName);
+    const m = usableFor(fonts, box.fontName, box.str);
     if (m) return { fontKey: 'emb:' + m.resName, bold: !!m.bold, italic: !!m.italic, cat: m.category };
     const g = String((box.style && box.style.fontFamily) || '');
     return { fontKey: null, bold: /bold|black|heavy|semibold|demi/i.test(g), italic: /italic|oblique/i.test(g), cat: categoryOfGeneric(g) };
@@ -488,7 +488,7 @@ export async function openTextEditor(box, pdfPoint) {
     try { fontCache.set(k, await getSysFont(k)); } catch { /* yoksay */ }
   }
   const generic = (box && box.style && box.style.fontFamily) || '';
-  const exact = box ? usableFor(fonts, box.fontName) : null;
+  const exact = box ? usableFor(fonts, box.fontName, text) : null;
   const want = exact && exact.fk ? {
     category: exact.category,
     bold: exact.bold,
@@ -502,7 +502,7 @@ export async function openTextEditor(box, pdfPoint) {
   const groupNames = existing
     ? [existing.fontKey.replace('emb:', '')]
     : [...new Set(boxes.map(b => {
-        const m = usableFor(fonts, b.fontName);
+        const m = usableFor(fonts, b.fontName, b.str);
         return m ? m.resName : null;
       }).filter(Boolean))];
   const pool = fonts.filter(f => groupNames.includes(f.resName));
@@ -946,7 +946,7 @@ function layoutTextOp(t, text, color, runs, needsEmbToast) {
 }
 
 export function sysFallbackFor(font) {
-  const cat = (font && font.category) || 'sans';
+  const cat = (font && (font.category || font.cat)) || 'sans';
   const bold = !!(font && font.bold);
   const italic = !!(font && font.italic);
   if (cat === 'serif') return bold ? 'sys:serif-bold' : italic ? 'sys:serif-italic' : 'sys:serif';

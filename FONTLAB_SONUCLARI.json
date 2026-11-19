@@ -1,0 +1,1066 @@
+[
+  {
+    "ok": true,
+    "source": {
+      "text": "HEDEF_01 1.250,00",
+      "fontName": "g_d0_f1",
+      "fontSize": 9,
+      "familyGeneric": "sans-serif"
+    },
+    "editor": {
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "size": 9,
+      "color": "#5c5c5c",
+      "previewFamily": "PDFSans, sans-serif",
+      "previewSizePx": 7.04394
+    },
+    "preview": {
+      "family": "PDFSans, sans-serif",
+      "sizePx": 8.60926,
+      "color": "rgb(26, 115, 232)"
+    },
+    "applied": {
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "fontCss": "PDFSans, sans-serif",
+      "fontSize": 11,
+      "color": [
+        26,
+        115,
+        232
+      ],
+      "text": "HEDEF_01 1.160,00",
+      "frame": 0
+    },
+    "checks": {
+      "sizeExact": true,
+      "colorExact": true,
+      "fontSameKey": true,
+      "previewFamilyMatches": true,
+      "previewSizeScaled": true,
+      "frameClearAfterApply": true,
+      "textChanged": true
+    },
+    "frame": {
+      "selected": true,
+      "handles": 8,
+      "modalAfterFirstTap": false,
+      "resize": {
+        "hadHandle": true,
+        "widthBefore": 84.1,
+        "widthAfter": 154.4
+      },
+      "move": {
+        "dx": 44.7,
+        "dy": -28.1,
+        "frame": 1
+      },
+      "hideOnBlank": true
+    },
+    "long": {
+      "ok": true,
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "fontSize": 11,
+      "textLength": 109,
+      "frameAfterApply": 0,
+      "resize": {
+        "selected": true,
+        "widthBefore": 154.4,
+        "widthAfter": 231.1
+      },
+      "hideOnBlank": true
+    },
+    "file": "helvetica_9.pdf",
+    "id": "01"
+  },
+  {
+    "ok": true,
+    "source": {
+      "text": "HEDEF_02 1.250,00",
+      "fontName": "g_d0_f1",
+      "fontSize": 11,
+      "familyGeneric": "sans-serif"
+    },
+    "editor": {
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "size": 11,
+      "color": "#1a3373",
+      "previewFamily": "PDFSans, sans-serif",
+      "previewSizePx": 8.60926
+    },
+    "preview": {
+      "family": "PDFSans, sans-serif",
+      "sizePx": 10.1746,
+      "color": "rgb(26, 115, 232)"
+    },
+    "applied": {
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "fontCss": "PDFSans, sans-serif",
+      "fontSize": 13,
+      "color": [
+        26,
+        115,
+        232
+      ],
+      "text": "HEDEF_02 1.160,00",
+      "frame": 0
+    },
+    "checks": {
+      "sizeExact": true,
+      "colorExact": true,
+      "fontSameKey": true,
+      "previewFamilyMatches": true,
+      "previewSizeScaled": true,
+      "frameClearAfterApply": true,
+      "textChanged": true
+    },
+    "frame": {
+      "selected": true,
+      "handles": 8,
+      "modalAfterFirstTap": false,
+      "resize": {
+        "hadHandle": true,
+        "widthBefore": 102.8,
+        "widthAfter": 173.1
+      },
+      "move": {
+        "dx": 44.7,
+        "dy": -28.1,
+        "frame": 1
+      },
+      "hideOnBlank": true
+    },
+    "long": {
+      "ok": true,
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "fontSize": 13,
+      "textLength": 109,
+      "frameAfterApply": 0,
+      "resize": {
+        "selected": true,
+        "widthBefore": 173.1,
+        "widthAfter": 249.8
+      },
+      "hideOnBlank": true
+    },
+    "file": "helvetica_bold_11.pdf",
+    "id": "02"
+  },
+  {
+    "ok": true,
+    "source": {
+      "text": "HEDEF_03 1.250,00",
+      "fontName": "g_d0_f1",
+      "fontSize": 10.5,
+      "familyGeneric": "serif"
+    },
+    "editor": {
+      "fontKey": "sys:serif",
+      "fontLabel": "Tinos — serif (Times benzeri)",
+      "size": 10.5,
+      "color": "#6b6b6b",
+      "previewFamily": "PDFSerif, serif",
+      "previewSizePx": 8.21793
+    },
+    "preview": {
+      "family": "PDFSerif, serif",
+      "sizePx": 9.78325,
+      "color": "rgb(26, 115, 232)"
+    },
+    "applied": {
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "fontCss": "PDFSans, sans-serif",
+      "fontSize": 12.5,
+      "color": [
+        26,
+        115,
+        232
+      ],
+      "text": "HEDEF_03 1.160,00",
+      "frame": 0
+    },
+    "checks": {
+      "sizeExact": true,
+      "colorExact": true,
+      "fontSameKey": false,
+      "previewFamilyMatches": false,
+      "previewSizeScaled": true,
+      "frameClearAfterApply": true,
+      "textChanged": true
+    },
+    "frame": {
+      "selected": true,
+      "handles": 8,
+      "modalAfterFirstTap": false,
+      "resize": {
+        "hadHandle": true,
+        "widthBefore": 90.2,
+        "widthAfter": 160.5
+      },
+      "move": {
+        "dx": 44.7,
+        "dy": -28.1,
+        "frame": 1
+      },
+      "hideOnBlank": true
+    },
+    "long": {
+      "ok": true,
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "fontSize": 12.5,
+      "textLength": 109,
+      "frameAfterApply": 0,
+      "resize": {
+        "selected": true,
+        "widthBefore": 160.5,
+        "widthAfter": 237.2
+      },
+      "hideOnBlank": true
+    },
+    "file": "times_105.pdf",
+    "id": "03"
+  },
+  {
+    "ok": true,
+    "source": {
+      "text": "HEDEF_04 1.250,00",
+      "fontName": "g_d0_f1",
+      "fontSize": 8,
+      "familyGeneric": "monospace"
+    },
+    "editor": {
+      "fontKey": "sys:mono",
+      "fontLabel": "Cousine — eş aralıklı (Courier benzeri)",
+      "size": 8,
+      "color": "#aaaaaa",
+      "previewFamily": "PDFMono, monospace",
+      "previewSizePx": 6.26128
+    },
+    "preview": {
+      "family": "PDFMono, monospace",
+      "sizePx": 7.8266,
+      "color": "rgb(26, 115, 232)"
+    },
+    "applied": {
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "fontCss": "PDFSans, sans-serif",
+      "fontSize": 10,
+      "color": [
+        26,
+        115,
+        232
+      ],
+      "text": "HEDEF_04 1.160,00",
+      "frame": 0
+    },
+    "checks": {
+      "sizeExact": true,
+      "colorExact": true,
+      "fontSameKey": false,
+      "previewFamilyMatches": false,
+      "previewSizeScaled": true,
+      "frameClearAfterApply": true,
+      "textChanged": true
+    },
+    "frame": {
+      "selected": true,
+      "handles": 8,
+      "modalAfterFirstTap": false,
+      "resize": {
+        "hadHandle": true,
+        "widthBefore": 82.6,
+        "widthAfter": 152.8
+      },
+      "move": {
+        "dx": 44.7,
+        "dy": -28.1,
+        "frame": 1
+      },
+      "hideOnBlank": true
+    },
+    "long": {
+      "ok": true,
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "fontSize": 10,
+      "textLength": 109,
+      "frameAfterApply": 0,
+      "resize": {
+        "selected": true,
+        "widthBefore": 152.8,
+        "widthAfter": 229.5
+      },
+      "hideOnBlank": true
+    },
+    "file": "courier_8.pdf",
+    "id": "04"
+  },
+  {
+    "ok": true,
+    "source": {
+      "text": "HEDEF_05 1.250,00",
+      "fontName": "g_d0_f1",
+      "fontSize": 10,
+      "familyGeneric": "sans-serif"
+    },
+    "editor": {
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "size": 10,
+      "color": "#5b5b5b",
+      "previewFamily": "PDFSans, sans-serif",
+      "previewSizePx": 7.8266
+    },
+    "preview": {
+      "family": "PDFSans, sans-serif",
+      "sizePx": 9.39192,
+      "color": "rgb(26, 115, 232)"
+    },
+    "applied": {
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "fontCss": "PDFSans, sans-serif",
+      "fontSize": 12,
+      "color": [
+        26,
+        115,
+        232
+      ],
+      "text": "HEDEF_05 1.160,00",
+      "frame": 0
+    },
+    "checks": {
+      "sizeExact": true,
+      "colorExact": true,
+      "fontSameKey": true,
+      "previewFamilyMatches": true,
+      "previewSizeScaled": true,
+      "frameClearAfterApply": true,
+      "textChanged": true
+    },
+    "frame": {
+      "selected": true,
+      "handles": 8,
+      "modalAfterFirstTap": false,
+      "resize": {
+        "hadHandle": true,
+        "widthBefore": 93.5,
+        "widthAfter": 163.8
+      },
+      "move": {
+        "dx": 44.7,
+        "dy": -28.1,
+        "frame": 1
+      },
+      "hideOnBlank": true
+    },
+    "long": {
+      "ok": true,
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "fontSize": 12,
+      "textLength": 109,
+      "frameAfterApply": 0,
+      "resize": {
+        "selected": true,
+        "widthBefore": 163.8,
+        "widthAfter": 240.4
+      },
+      "hideOnBlank": true
+    },
+    "file": "arial_subset_10.pdf",
+    "id": "05"
+  },
+  {
+    "ok": true,
+    "source": {
+      "text": "HEDEF_06 1.250,00",
+      "fontName": "g_d0_f1",
+      "fontSize": 9,
+      "familyGeneric": "sans-serif"
+    },
+    "editor": {
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "size": 9,
+      "color": "#a54141",
+      "previewFamily": "PDFSans, sans-serif",
+      "previewSizePx": 7.04394
+    },
+    "preview": {
+      "family": "PDFSans, sans-serif",
+      "sizePx": 8.60926,
+      "color": "rgb(26, 115, 232)"
+    },
+    "applied": {
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "fontCss": "PDFSans, sans-serif",
+      "fontSize": 11,
+      "color": [
+        26,
+        115,
+        232
+      ],
+      "text": "HEDEF_06 1.160,00",
+      "frame": 0
+    },
+    "checks": {
+      "sizeExact": true,
+      "colorExact": true,
+      "fontSameKey": true,
+      "previewFamilyMatches": true,
+      "previewSizeScaled": true,
+      "frameClearAfterApply": true,
+      "textChanged": true
+    },
+    "frame": {
+      "selected": true,
+      "handles": 8,
+      "modalAfterFirstTap": false,
+      "resize": {
+        "hadHandle": true,
+        "widthBefore": 84.1,
+        "widthAfter": 154.4
+      },
+      "move": {
+        "dx": 44.7,
+        "dy": -28.1,
+        "frame": 1
+      },
+      "hideOnBlank": true
+    },
+    "long": {
+      "ok": true,
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "fontSize": 11,
+      "textLength": 109,
+      "frameAfterApply": 0,
+      "resize": {
+        "selected": true,
+        "widthBefore": 154.4,
+        "widthAfter": 231.1
+      },
+      "hideOnBlank": true
+    },
+    "file": "arial_bold_subset_9.pdf",
+    "id": "06"
+  },
+  {
+    "ok": true,
+    "source": {
+      "text": "HEDEF_07 1.250,00",
+      "fontName": "g_d0_f1",
+      "fontSize": 12,
+      "familyGeneric": "sans-serif"
+    },
+    "editor": {
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "size": 12,
+      "color": "#434343",
+      "previewFamily": "PDFSans, sans-serif",
+      "previewSizePx": 9.39192
+    },
+    "preview": {
+      "family": "PDFSans, sans-serif",
+      "sizePx": 10.9572,
+      "color": "rgb(26, 115, 232)"
+    },
+    "applied": {
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "fontCss": "PDFSans, sans-serif",
+      "fontSize": 14,
+      "color": [
+        26,
+        115,
+        232
+      ],
+      "text": "HEDEF_07 1.160,00",
+      "frame": 0
+    },
+    "checks": {
+      "sizeExact": true,
+      "colorExact": true,
+      "fontSameKey": true,
+      "previewFamilyMatches": true,
+      "previewSizeScaled": true,
+      "frameClearAfterApply": true,
+      "textChanged": true
+    },
+    "frame": {
+      "selected": true,
+      "handles": 8,
+      "modalAfterFirstTap": false,
+      "resize": {
+        "hadHandle": true,
+        "widthBefore": 103.1,
+        "widthAfter": 173.4
+      },
+      "move": {
+        "dx": 44.7,
+        "dy": -28.1,
+        "frame": 1
+      },
+      "hideOnBlank": true
+    },
+    "long": {
+      "ok": true,
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "fontSize": 14,
+      "textLength": 109,
+      "frameAfterApply": 0,
+      "resize": {
+        "selected": true,
+        "widthBefore": 173.4,
+        "widthAfter": 250
+      },
+      "hideOnBlank": true
+    },
+    "file": "times_new_subset_12.pdf",
+    "id": "07"
+  },
+  {
+    "ok": true,
+    "source": {
+      "text": "HEDEF_08",
+      "fontName": "g_d0_f1",
+      "fontSize": 8.5,
+      "familyGeneric": "sans-serif"
+    },
+    "editor": {
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "size": 8.5,
+      "color": "#c3c3e1",
+      "previewFamily": "PDFSans, sans-serif",
+      "previewSizePx": 6.65261
+    },
+    "preview": {
+      "family": "PDFSans, sans-serif",
+      "sizePx": 8.21793,
+      "color": "rgb(26, 115, 232)"
+    },
+    "applied": {
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "fontCss": "PDFSans, sans-serif",
+      "fontSize": 10.5,
+      "color": [
+        26,
+        115,
+        232
+      ],
+      "text": "HEDEF_08 1.160,00",
+      "frame": 0
+    },
+    "checks": {
+      "sizeExact": true,
+      "colorExact": true,
+      "fontSameKey": true,
+      "previewFamilyMatches": true,
+      "previewSizeScaled": true,
+      "frameClearAfterApply": true,
+      "textChanged": true
+    },
+    "frame": {
+      "selected": true,
+      "handles": 8,
+      "modalAfterFirstTap": false,
+      "resize": {
+        "hadHandle": true,
+        "widthBefore": 87.7,
+        "widthAfter": 158
+      },
+      "move": {
+        "dx": 44.7,
+        "dy": -28.1,
+        "frame": 1
+      },
+      "hideOnBlank": true
+    },
+    "long": {
+      "ok": true,
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "fontSize": 10.5,
+      "textLength": 109,
+      "frameAfterApply": 0,
+      "resize": {
+        "selected": true,
+        "widthBefore": 158,
+        "widthAfter": 234.7
+      },
+      "hideOnBlank": true
+    },
+    "file": "courier_new_subset_85.pdf",
+    "id": "08"
+  },
+  {
+    "ok": true,
+    "source": {
+      "text": "HEDEF_09 1.250,00",
+      "fontName": "g_d0_f1",
+      "fontSize": 10.5,
+      "familyGeneric": "sans-serif"
+    },
+    "editor": {
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "size": 10.5,
+      "color": "#6d9375",
+      "previewFamily": "PDFSans, sans-serif",
+      "previewSizePx": 8.21793
+    },
+    "preview": {
+      "family": "PDFSans, sans-serif",
+      "sizePx": 9.78325,
+      "color": "rgb(26, 115, 232)"
+    },
+    "applied": {
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "fontCss": "PDFSans, sans-serif",
+      "fontSize": 12.5,
+      "color": [
+        26,
+        115,
+        232
+      ],
+      "text": "HEDEF_09 1.160,00",
+      "frame": 0
+    },
+    "checks": {
+      "sizeExact": true,
+      "colorExact": true,
+      "fontSameKey": true,
+      "previewFamilyMatches": true,
+      "previewSizeScaled": true,
+      "frameClearAfterApply": true,
+      "textChanged": true
+    },
+    "frame": {
+      "selected": true,
+      "handles": 8,
+      "modalAfterFirstTap": false,
+      "resize": {
+        "hadHandle": true,
+        "widthBefore": 100.3,
+        "widthAfter": 170.6
+      },
+      "move": {
+        "dx": 44.7,
+        "dy": -28.1,
+        "frame": 1
+      },
+      "hideOnBlank": true
+    },
+    "long": {
+      "ok": true,
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "fontSize": 12.5,
+      "textLength": 109,
+      "frameAfterApply": 0,
+      "resize": {
+        "selected": true,
+        "widthBefore": 170.6,
+        "widthAfter": 247.2
+      },
+      "hideOnBlank": true
+    },
+    "file": "georgia_subset_105.pdf",
+    "id": "09"
+  },
+  {
+    "ok": true,
+    "source": {
+      "text": "HEDEF_10 1.250,00",
+      "fontName": "g_d0_f1",
+      "fontSize": 9,
+      "familyGeneric": "sans-serif"
+    },
+    "editor": {
+      "fontKey": "emb:LiberationSans-7098480789",
+      "fontLabel": "Liberation Sans · 2620 glif",
+      "size": 9,
+      "color": "#757575",
+      "previewFamily": "emb_emb_LiberationSans_7098480789, PDFSans, sans-serif",
+      "previewSizePx": 7.04394
+    },
+    "preview": {
+      "family": "emb_emb_LiberationSans_7098480789, PDFSans, sans-serif",
+      "sizePx": 8.60926,
+      "color": "rgb(26, 115, 232)"
+    },
+    "applied": {
+      "fontKey": "emb:LiberationSans-7098480789",
+      "fontLabel": "Gömülü · Liberation Sans",
+      "fontCss": "\"emb_emb_LiberationSans_7098480789\", PDFSans, sans-serif",
+      "fontSize": 11,
+      "color": [
+        26,
+        115,
+        232
+      ],
+      "text": "HEDEF_10 1.160,00",
+      "frame": 0
+    },
+    "checks": {
+      "sizeExact": true,
+      "colorExact": true,
+      "fontSameKey": true,
+      "previewFamilyMatches": true,
+      "previewSizeScaled": true,
+      "frameClearAfterApply": true,
+      "textChanged": true
+    },
+    "frame": {
+      "selected": true,
+      "handles": 8,
+      "modalAfterFirstTap": false,
+      "resize": {
+        "hadHandle": true,
+        "widthBefore": 84.1,
+        "widthAfter": 154.4
+      },
+      "move": {
+        "dx": 44.7,
+        "dy": -28.1,
+        "frame": 1
+      },
+      "hideOnBlank": true
+    },
+    "long": {
+      "ok": true,
+      "fontKey": "emb:LiberationSans-7098480789",
+      "fontLabel": "Gömülü · Liberation Sans",
+      "fontSize": 11,
+      "textLength": 109,
+      "frameAfterApply": 0,
+      "resize": {
+        "selected": true,
+        "widthBefore": 154.4,
+        "widthAfter": 231.1
+      },
+      "hideOnBlank": true
+    },
+    "file": "liberation_full_9.pdf",
+    "id": "10"
+  },
+  {
+    "ok": true,
+    "source": {
+      "text": "HEDEF_11 1.250,00",
+      "fontName": "g_d0_f1",
+      "fontSize": 11.5,
+      "familyGeneric": "sans-serif"
+    },
+    "editor": {
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "size": 11.5,
+      "color": "#ae9589",
+      "previewFamily": "PDFSans, sans-serif",
+      "previewSizePx": 9.00059
+    },
+    "preview": {
+      "family": "PDFSans, sans-serif",
+      "sizePx": 10.5659,
+      "color": "rgb(26, 115, 232)"
+    },
+    "applied": {
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "fontCss": "PDFSans, sans-serif",
+      "fontSize": 13.5,
+      "color": [
+        26,
+        115,
+        232
+      ],
+      "text": "HEDEF_11 1.160,00",
+      "frame": 0
+    },
+    "checks": {
+      "sizeExact": true,
+      "colorExact": true,
+      "fontSameKey": true,
+      "previewFamilyMatches": true,
+      "previewSizeScaled": true,
+      "frameClearAfterApply": true,
+      "textChanged": true
+    },
+    "frame": {
+      "selected": true,
+      "handles": 8,
+      "modalAfterFirstTap": false,
+      "resize": {
+        "hadHandle": true,
+        "widthBefore": 98.8,
+        "widthAfter": 169.1
+      },
+      "move": {
+        "dx": 44.7,
+        "dy": -28.1,
+        "frame": 1
+      },
+      "hideOnBlank": true
+    },
+    "long": {
+      "ok": true,
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "fontSize": 13.5,
+      "textLength": 109,
+      "frameAfterApply": 0,
+      "resize": {
+        "selected": true,
+        "widthBefore": 169.1,
+        "widthAfter": 245.7
+      },
+      "hideOnBlank": true
+    },
+    "file": "tinos_subset_115.pdf",
+    "id": "11"
+  },
+  {
+    "ok": true,
+    "source": {
+      "text": "HEDEF_12",
+      "fontName": "g_d0_f1",
+      "fontSize": 8,
+      "familyGeneric": "sans-serif"
+    },
+    "editor": {
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "size": 8,
+      "color": "#839dc4",
+      "previewFamily": "PDFSans, sans-serif",
+      "previewSizePx": 6.26128
+    },
+    "preview": {
+      "family": "PDFSans, sans-serif",
+      "sizePx": 7.8266,
+      "color": "rgb(26, 115, 232)"
+    },
+    "applied": {
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "fontCss": "PDFSans, sans-serif",
+      "fontSize": 10,
+      "color": [
+        26,
+        115,
+        232
+      ],
+      "text": "HEDEF_12 1.160,00",
+      "frame": 0
+    },
+    "checks": {
+      "sizeExact": true,
+      "colorExact": true,
+      "fontSameKey": true,
+      "previewFamilyMatches": true,
+      "previewSizeScaled": true,
+      "frameClearAfterApply": true,
+      "textChanged": true
+    },
+    "frame": {
+      "selected": true,
+      "handles": 8,
+      "modalAfterFirstTap": false,
+      "resize": {
+        "hadHandle": true,
+        "widthBefore": 82.6,
+        "widthAfter": 152.8
+      },
+      "move": {
+        "dx": 44.7,
+        "dy": -28.1,
+        "frame": 1
+      },
+      "hideOnBlank": true
+    },
+    "long": {
+      "ok": true,
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "fontSize": 10,
+      "textLength": 109,
+      "frameAfterApply": 0,
+      "resize": {
+        "selected": true,
+        "widthBefore": 152.8,
+        "widthAfter": 229.5
+      },
+      "hideOnBlank": true
+    },
+    "file": "cousine_subset_8.pdf",
+    "id": "12"
+  },
+  {
+    "ok": true,
+    "source": {
+      "text": "HEDEF_13 1.250,00",
+      "fontName": "g_d0_f1",
+      "fontSize": 9.5,
+      "familyGeneric": "sans-serif"
+    },
+    "editor": {
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "size": 9.5,
+      "color": "#8272a1",
+      "previewFamily": "PDFSans, sans-serif",
+      "previewSizePx": 7.43527
+    },
+    "preview": {
+      "family": "PDFSans, sans-serif",
+      "sizePx": 9.00059,
+      "color": "rgb(26, 115, 232)"
+    },
+    "applied": {
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "fontCss": "PDFSans, sans-serif",
+      "fontSize": 11.5,
+      "color": [
+        26,
+        115,
+        232
+      ],
+      "text": "HEDEF_13 1.160,00",
+      "frame": 0
+    },
+    "checks": {
+      "sizeExact": true,
+      "colorExact": true,
+      "fontSameKey": true,
+      "previewFamilyMatches": true,
+      "previewSizeScaled": true,
+      "frameClearAfterApply": true,
+      "textChanged": true
+    },
+    "frame": {
+      "selected": true,
+      "handles": 8,
+      "modalAfterFirstTap": false,
+      "resize": {
+        "hadHandle": true,
+        "widthBefore": 95.2,
+        "widthAfter": 165.5
+      },
+      "move": {
+        "dx": 44.7,
+        "dy": -28.1,
+        "frame": 1
+      },
+      "hideOnBlank": true
+    },
+    "long": {
+      "ok": true,
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "fontSize": 11.5,
+      "textLength": 109,
+      "frameAfterApply": 0,
+      "resize": {
+        "selected": true,
+        "widthBefore": 165.5,
+        "widthAfter": 242.2
+      },
+      "hideOnBlank": true
+    },
+    "file": "dejavu_subset_95_tr.pdf",
+    "id": "13"
+  },
+  {
+    "ok": true,
+    "source": {
+      "text": "HEDEF_14 1.250,00",
+      "fontName": "g_d0_f1",
+      "fontSize": 10,
+      "familyGeneric": "sans-serif"
+    },
+    "editor": {
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "size": 10,
+      "color": "#4d4d4d",
+      "previewFamily": "PDFSans, sans-serif",
+      "previewSizePx": 11.0756
+    },
+    "preview": {
+      "family": "PDFSans, sans-serif",
+      "sizePx": 13.2908,
+      "color": "rgb(26, 115, 232)"
+    },
+    "applied": {
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "fontCss": "PDFSans, sans-serif",
+      "fontSize": 12,
+      "color": [
+        26,
+        115,
+        232
+      ],
+      "text": "HEDEF_14 1.160,00",
+      "frame": 0
+    },
+    "checks": {
+      "sizeExact": true,
+      "colorExact": true,
+      "fontSameKey": true,
+      "previewFamilyMatches": true,
+      "previewSizeScaled": true,
+      "frameClearAfterApply": true,
+      "textChanged": true
+    },
+    "frame": {
+      "selected": true,
+      "handles": 8,
+      "modalAfterFirstTap": false,
+      "resize": {
+        "hadHandle": true,
+        "widthBefore": 93.5,
+        "widthAfter": 93.5
+      },
+      "move": {
+        "dx": 19.9,
+        "dy": 31.6,
+        "frame": 1
+      },
+      "hideOnBlank": true
+    },
+    "long": {
+      "ok": true,
+      "fontKey": "sys:sans",
+      "fontLabel": "Liberation Sans — sans (Arial benzeri)",
+      "fontSize": 12,
+      "textLength": 109,
+      "frameAfterApply": 0,
+      "resize": {
+        "selected": true,
+        "widthBefore": 93.5,
+        "widthAfter": 93.5
+      },
+      "hideOnBlank": true
+    },
+    "file": "arial_subset_rotated_10.pdf",
+    "id": "14"
+  }
+]
